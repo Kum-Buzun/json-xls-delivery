@@ -1,4 +1,18 @@
-xlsTemplate: NRHM-Monthly-Report-Format-Sub-Centers.xls
+database:
+  driverClass: org.postgresql.Driver
+  user: postgres
+  password: password
+  url: jdbc:postgresql://localhost/json_to_xls/
+  properties:
+    charSet: UTF-8
+  maxWaitForConnection: 5s
+  validationQuery: "/* MyService Health Check */ SELECT 1"
+  minSize: 8
+  maxSize: 32
+  checkConnectionWhileIdle: false
+  checkConnectionHealthWhenIdleFor: 10s
+  closeConnectionIfIdleFor: 1 minute
+
 logging:
   console:
     enabled: true
