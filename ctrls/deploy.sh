@@ -9,6 +9,7 @@ EXTRACTED_DIRECTORY="json-to-xls-'${SNAPSHOT_VERSION}'-SNAPSHOT/bin"
 
 #copying json-to-xls.yml to Prod
 scp json-to-xls.yml prod://home/motech/config-json-to-xls.yml
+scp api.txt prod://root/api.txt
 
 echo "FETCHING FILE: ${FILENAME}"
 ssh prod '\
@@ -20,6 +21,7 @@ ssh prod '\
     tar -xvf '${FILENAME}' && \
 	echo '${EXTRACTED_DIRECTORY}' && \
 	cd '${EXTRACTED_DIRECTORY}' && \
+	cp /home/motech/api.txt /home/motech/'${EXTRACTED_DIRECTORY}'/api.txt && \	
 	export JAVA_HOME=/usr/java/default && \
 	echo "Migrating Database"	&& \
 	sh ./json-to-xls db migrate ../../config-json-to-xls.yml && \
