@@ -9,7 +9,7 @@ EXTRACTED_DIRECTORY="json-to-xls-'${SNAPSHOT_VERSION}'-SNAPSHOT/bin"
 
 #copying json-to-xls.yml to Prod
 scp json-to-xls.yml prod://home/motech/config-json-to-xls.yml
-scp api.txt prod://root/api.txt
+scp api.txt prod://home/motech/api.txt
 
 echo "FETCHING FILE: ${FILENAME}"
 ssh prod '\
